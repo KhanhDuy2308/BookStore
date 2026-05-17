@@ -13,9 +13,9 @@
             <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
 
             <div class="navbar-right" >
-                <a href="index.html">Home</a>
-                <a href="HomeBook.html">Book</a>
-                <a href="HomeKids.html">Kids</a>
+               <a href="#">Trang Chủ</a>
+                <a href="HomeBook.html">Sách</a>
+                <a href="#" id="openModalBtn">Loại Sách</a>
                 <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Lab</a>
              </div>
                 
@@ -56,7 +56,41 @@
 
            </div>
   
-  
+          <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                  <li><a href="VanHocNuocNgoai.html">Văn học nước ngoài</a></li>
+                <li><a href="TamLyHocHanhVi.html">Tâm lý học hành vi</a></li>
+                <li><a href="SachTruyenCamhung.html">Sách truyền cảm hứng.</a></li>
+                <li><a href="DuKy.html">Du ký</a></li>
+            </ul>
+        </div>
+             <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 
 
  

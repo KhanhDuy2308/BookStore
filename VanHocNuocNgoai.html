@@ -7,19 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   
-
-        <nav>
+ <nav>
             <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
 
             <div class="navbar-right" >
-               <a href="#">Trang Chủ</a>
+              <a href="#">Trang Chủ</a>
                 <a href="HomeBook.html">Sách</a>
                 <a href="#" id="openModalBtn">Loại Sách</a>
-                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Lab</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
              </div>
                 
            </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                 <li><a href="VanHocNuocNgoai.html">Văn học nước ngoài</a></li>
+                <li><a href="TamLyHocHanhVi.html">Tâm lý học hành vi</a></li>
+                <li><a href="SachTruyenCamhung.html">Sách truyền cảm hứng.</a></li>
+                <li><a href="DuKy.html">Du ký</a></li>
+            </ul>
+        </div>
+    </div>
 
            <div class="introduce" style="background-color: grey;">
             <span class="span-left"> Sale</span>
@@ -33,42 +44,7 @@
             <span class="span-right">30%</span>
             </div>
 
-            <div align="center">
-
-                <div><img src="image/blog_3.jpg" alt="" width="500px" style="margin-top: 10px;"></div>
-                <div> Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, rem maxime exercitationem dolore libero asperiores qui recusandae nisi? Officiis molestiae commodi non placeat animi deserunt repudiandae nulla assumenda ipsum libero!</div>
-
-            </div >
-
-               <div class="end" style="padding-top: 400px;">
-
-               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
-
-                <div class="bye">
-                    
-
-                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
-
-                </div>
-
-
-            </div>
-
-           </div>
-  
-  
-        <div class="modal-overlay" id="bookModal">
-        <div class="modal-box">
-            <span class="close-btn" id="closeModalBtn">&times;</span>
-            <h3>Chọn loại sách</h3>
-            <ul class="book-list">
-                  <li><a href="VanHocNuocNgoai.html">Văn học nước ngoài</a></li>
-                <li><a href="TamLyHocHanhVi.html">Tâm lý học hành vi</a></li>
-                <li><a href="SachTruyenCamhung.html">Sách truyền cảm hứng.</a></li>
-                <li><a href="DuKy.html">Du ký</a></li>
-            </ul>
-        </div>
-             <script>
+                 <script>
         // Lấy các phần tử từ HTML
         const openBtn = document.getElementById('openModalBtn');
         const closeBtn = document.getElementById('closeModalBtn');
@@ -93,6 +69,43 @@
         });
     </script>
 
- 
+<div >
+
+    <table  style="margin: 0 auto; width: 80%; border-collapse: separate; border-spacing: 30px 10px;">
+        <tr >
+            <th>
+                <div> <img src="image/Book_1.jpg" alt="" width="100px"> </div>
+                <div> Cây cam ngọt của tôi
+                </div>
+                <div><del>300.000VND</del></div>
+                <div> 270.000VND</div>
+                <div style="border-radius: 10px; border: solid; display: inline; background-color: black;"><a href="CayCamNgot.html" style="color: white;">Xem Chi Tiết</a></div>           
+            <th>
+        </tr>
+
+       
+         
+    </table>
+
+     <div class="end">
+
+               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
+
+                <div class="bye">
+                    
+
+                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
+
+                </div>
+
+
+            </div>
+
+           </div>
+
+</div>
+
+
+        
 </body>
 </html>
