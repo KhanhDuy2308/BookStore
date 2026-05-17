@@ -91,8 +91,47 @@ Sự va đập của địa chính trị: Tác giả khéo léo đan cài nhữn
 </div>
 <div style="padding-top: 20px; display: flex; justify-content: space-around;" >
     <div style="font-size: 30px; border: solid; border-radius: 10px; display: inline; background-color: black;">
-    <a href="Buy.html" style="color: white;"> Mua </a>     
+    <a href="#" style="color: white;" id="buy-now-btn" class="book-item"> Mua </a>     
     </div>
+    <div id="payment-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+    
+    <div style="background: white; padding: 25px; border-radius: 8px; width: 90%; max-width: 450px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; max-height: 90vh; overflow-y: auto;">
+        
+        <span id="close-popup-btn" style="position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; font-weight: bold; color: #aaa;">&times;</span>
+        
+        <h3 style="text-align: center; margin-top: 0; color: #333;">📋 THÔNG TIN ĐƠN HÀNG</h3>
+        
+        <div style="background: #f9f9f9; border: 1px dashed #bbb; padding: 12px; border-radius: 6px; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="image/Book_5.jpg" style="width: 40px; height: auto; border-radius: 4px;">
+                <span><strong>Con đường tơ lụa - Vạn dặm từ Tây sang Đông</strong> (x1)</span>
+            </div>
+            <div style="font-weight: bold; color: red;">250.000 VND</div>
+        </div>
+
+        <form id="orderForm">
+            <div style="margin-bottom: 12px;">
+                <label style="display:block; font-weight:bold; margin-bottom:5px; font-size:14px;">Họ và tên *</label>
+                <input type="text" id="fullname" placeholder="Nhập đầy đủ họ tên" style="width:100%; padding: 8px; box-sizing:border-box; border: 1px solid #ccc; border-radius:4px;">
+                <div id="error-fullname" style="color:red; font-size:12px; margin-top:3px; display:none;">Vui lòng nhập họ và tên!</div>
+            </div>
+
+            <div style="margin-bottom: 12px;">
+                <label style="display:block; font-weight:bold; margin-bottom:5px; font-size:14px;">Số điện thoại *</label>
+                <input type="text" id="phone" placeholder="Nhập số điện thoại" style="width:100%; padding: 8px; box-sizing:border-box; border: 1px solid #ccc; border-radius:4px;">
+                <div id="error-phone" style="color:red; font-size:12px; margin-top:3px; display:none;">Vui lòng nhập số điện thoại hợp lệ!</div>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; font-weight:bold; margin-bottom:5px; font-size:14px;">Địa chỉ nhận hàng *</label>
+                <textarea id="address" placeholder="Địa chỉ giao hàng chi tiết" style="width:100%; padding: 8px; box-sizing:border-box; border: 1px solid #ccc; border-radius:4px; height: 60px; resize: none;"></textarea>
+                <div id="error-address" style="color:red; font-size:12px; margin-top:3px; display:none;">Vui lòng nhập địa chỉ giao hàng!</div>
+            </div>
+
+            <button type="submit" style="width: 100%; background-color: #28a745; color: white; border: none; padding: 10px; font-size: 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">Xác Nhận Đặt Hàng</button>
+        </form>
+    </div>
+</div>
 
      <div style="font-size: 30px; border: solid; border-radius: 10px; display: inline; background-color: black;">
     <a href="GioHang.html" style="color: white;" id="add-to-cart-detail-btn"> Giỏ Hàng </a>     
@@ -158,6 +197,81 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Thông báo cho người dùng biết
             alert(`Đã thêm "${name}" vào giỏ hàng thành công!`);
+        });
+    }
+});
+window.addEventListener('DOMContentLoaded', () => {
+    const buyNowBtn = document.getElementById('buy-now-btn');
+    const paymentPopup = document.getElementById('payment-popup');
+    const closePopupBtn = document.getElementById('close-popup-btn');
+    const orderForm = document.getElementById('orderForm');
+
+    // 1. Bấm Buy thì hiện Pop-up điền thông tin lên
+    if (buyNowBtn && paymentPopup) {
+        buyNowBtn.addEventListener('click', () => {
+            paymentPopup.style.display = "flex"; 
+        });
+    }
+
+    // 2. Bấm nút dấu x thì đóng Pop-up lại
+    if (closePopupBtn && paymentPopup) {
+        closePopupBtn.addEventListener('click', () => {
+            paymentPopup.style.display = "none";
+        });
+    }
+
+    // 3. Xử lý khi bấm Xác nhận đặt hàng
+    if (orderForm) {
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullname = document.getElementById('fullname').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+
+            const errFullname = document.getElementById('error-fullname');
+            const errPhone = document.getElementById('error-phone');
+            const errAddress = document.getElementById('error-address');
+
+            let isValid = true;
+
+            if (fullname === "") { errFullname.style.display = "block"; isValid = false; } else { errFullname.style.display = "none"; }
+            const phoneRegex = /^[0-9]{9,11}$/;
+            if (phone === "" || !phoneRegex.test(phone)) { errPhone.style.display = "block"; isValid = false; } else { errPhone.style.display = "none"; }
+            if (address === "") { errAddress.style.display = "block"; isValid = false; } else { errAddress.style.display = "none"; }
+
+            // NẾU FORM ĐÃ HỢP LỆ -> LƯU THẲNG ĐƠN VÀO KHO ADMIN LUÔN
+            if (isValid) {
+                let allOrders = JSON.parse(localStorage.getItem('DUY_SNEAKER_ORDERS')) || [];
+                
+                // Gom thông tin sản phẩm trực tiếp tại đây, không cần thông qua giỏ hàng
+                let directProduct = [{
+                    name: "Con đường tơ lụa - Vạn dặm từ Tây sang Đông",
+                    price: "250.000",
+                    img: "image/Book_5.jpg",
+                    quantity: 1
+                }];
+
+                let newOrder = {
+                    orderId: "DH" + Date.now().toString().slice(-6),
+                    customerName: fullname,
+                    customerPhone: phone,
+                    customerAddress: address,
+                    products: directProduct, // Đút thẳng cuốn sách này vào đơn
+                    date: new Date().toLocaleString('vi-VN')
+                };
+
+                allOrders.push(newOrder);
+                localStorage.setItem('DUY_SNEAKER_ORDERS', JSON.stringify(allOrders));
+
+                alert("🎉 Chúc mừng bạn đã mua hàng thành công!\nĐơn hàng đã được ghi nhận vào hệ thống Admin.");
+                
+                paymentPopup.style.display = "none"; // Ẩn popup
+                orderForm.reset(); // Xóa trắng dữ liệu trong form
+                
+                // Chuyển hướng về trang chủ
+                window.location.href = "index.html";
+            }
         });
     }
 });
