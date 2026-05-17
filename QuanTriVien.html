@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Quản Trị - DuySneaker</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; padding: 20px; margin: 0; }
+        .admin-container { max-width: 1100px; margin: 30px auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h2 { text-align: center; color: #333; margin-bottom: 25px; border-bottom: 2px solid #333; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; font-size: 14px; }
+        th { background-color: #343a40; color: white; }
+        tr:hover { background-color: #f8f9fa; }
+        .product-summary { font-size: 13px; color: #555; list-style-type: square; padding-left: 20px; margin: 0; }
+        .btn-delete { background-color: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+        .btn-delete:hover { background-color: #bd2130; }
+        .empty-message { text-align: center; font-size: 16px; color: #777; padding: 30px 0; }
+        .btn-home { display: inline-block; margin-bottom: 15px; text-decoration: none; color: #007bff; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="admin-container" id="adminContent" style="display: none;">
+    <a href="index.html" class="btn-home">← Quay lại Trang Chủ</a>
+    <h2>📊 HỆ THỐNG QUẢN LÝ ĐƠN HÀNG (ADMIN)</h2>
+
+    
+    
+    <div id="orders-section">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 12%">Mã Đơn Hàng</th>
+                    <th style="width: 15%">Khách Hàng</th>
+                    <th style="width: 12%">Số Điện Thoại</th>
+                    <th style="width: 20%">Địa Chỉ Giao Hàng</th>
+                    <th style="width: 25%">Chi Tiết Sản Phẩm</th>
+                    <th style="width: 10%">Ngày Đặt</th>
+                    <th style="width: 6%">Hành Động</th>
+                </tr>
+            </thead>
+            <tbody id="order-list">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+// 1. CHỨC NĂNG BẢO MẬT: Bắt nhập mật khẩu khi vừa mở trang
+const password = prompt("Vui lòng nhập mật khẩu Admin để truy cập hệ thống: mk la duy123");
+
+if (password === "duy123") {
+    // Nếu đúng mật khẩu -> Hiện giao diện admin lên
+    document.getElementById('adminContent').style.display = "block";
+} else {
+    // Nếu sai mật khẩu -> Thông báo và đá bay về trang chủ
+    alert("❌ Mật khẩu sai! Bạn không có quyền truy cập trang này.");
+    window.location.href = "index.html";
+}
+
+// 2. XỬ LÝ ĐỌC VÀ IN ĐƠN HÀNG
+window.addEventListener('DOMContentLoaded', () => {
+    // Nếu nhập sai mật khẩu thì không cần chạy đoạn code đọc dữ liệu dưới này
+    if (password !== "duy123") return;
+
+    // Lấy dữ liệu đơn hàng từ kho localStorage chung ra
+    let allOrders = JSON.parse(localStorage.getItem('DUY_SNEAKER_ORDERS')) || [];
+    const orderList = document.getElementById('order-list');
+
+    // Hàm hiển thị danh sách đơn hàng
+    function renderOrders() {
+        if (allOrders.length === 0) {
+            orderList.innerHTML = '<tr><td colspan="7" class="empty-message">Hiện tại chưa có đơn hàng nào được đặt! 📭</td></tr>';
+            return;
+        }
+
+        orderList.innerHTML = ""; // Xóa dữ liệu cũ
+
+        // Duyệt qua từng đơn hàng để tạo dòng <tr>
+        allOrders.forEach((order, index) => {
+            
+            // Xử lý gom danh sách sản phẩm trong đơn hàng thành danh sách ký tự để in
+            let productHtml = '<ul class="product-summary">';
+            let totalOrderMoney = 0;
+            
+            if (order.products && order.products.length > 0) {
+                order.products.forEach(p => {
+                    let priceNum = parseFloat(String(p.price).replace(/[^0-9]/g, '')) || 0;
+                    totalOrderMoney += (priceNum * p.quantity);
+                    productHtml += `<li>${p.name} <span style="color:#007bff;">(x${p.quantity})</span></li>`;
+                });
+            } else {
+                productHtml += '<li>Không rõ sản phẩm</li>';
+            }
+            productHtml += `</ul><div style="margin-top:5px; font-weight:bold; color:red;">Tổng đơn: ${totalOrderMoney.toLocaleString('vi-VN')} VND</div>`;
+
+            // Tạo thẻ tr
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><strong style="color: #6c757d;">${order.orderId || 'DH'}</strong></td>
+                <td><strong>${order.customerName}</strong></td>
+                <td>${order.customerPhone}</td>
+                <td>${order.customerAddress}</td>
+                <td>${productHtml}</td>
+                <td>${order.date || 'Vừa xong'}</td>
+                <td><button class="btn-delete" data-index="${index}">Xóa</button></td>
+            `;
+            orderList.appendChild(tr);
+        });
+
+        // Thêm sự kiện Xóa đơn hàng khi Admin xử lý xong
+        const deleteBtns = document.querySelectorAll('.btn-delete');
+        deleteBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (confirm("Bạn có chắc chắn muốn xóa đơn hàng này không?")) {
+                    const indexToDelete = this.getAttribute('data-index');
+                    allOrders.splice(indexToDelete, 1); // Xóa khỏi mảng
+                    localStorage.setItem('DUY_SNEAKER_ORDERS', JSON.stringify(allOrders)); // Cập nhật kho máy
+                    renderOrders(); // Vẽ lại bảng admin
+                }
+            });
+        });
+    }
+
+    renderOrders();
+});
+</script>
+
+</body>
+</html>

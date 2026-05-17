@@ -11,10 +11,12 @@
             <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
 
             <div class="navbar-right" >
-                <a href="index.html">Home</a>
-                <a href="HomeBook.html">Book</a>
-                <a href="#" id="openModalBtn">List Book</a>
-                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             <a href="index.html">Trang Chủ</a>
+                <a href="HomeBook.html">Sách</a>
+                 <a href="GioHang.html">Giỏ Hàng</a>
+                <a href="#" id="openModalBtn">Loại Sách</a>
+                <a href="lab.html" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">lab</a>
+                 <a href="QuanTriVien.html " style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Admin</a>
              </div>
                 
            </nav>
@@ -24,10 +26,10 @@
             <span class="close-btn" id="closeModalBtn">&times;</span>
             <h3>Chọn loại sách</h3>
             <ul class="book-list">
-                <li><a href="#sach-giao-khoa">Sách giáo khoa</a></li>
-                <li><a href="#truyen-tranh">Truyện tranh</a></li>
-                <li><a href="#sach-tin-hoc">Sách Tin học</a></li>
-                <li><a href="#sach-ngoai-ngu">Sách Ngoại ngữ</a></li>
+                  <li><a href="VanHocNuocNgoai.html">Văn học nước ngoài</a></li>
+                <li><a href="TamLyHocHanhVi.html">Tâm lý học hành vi</a></li>
+                <li><a href="SachTruyenCamhung.html">Sách truyền cảm hứng.</a></li>
+                <li><a href="DuKy.html">Du ký</a></li>
             </ul>
         </div>
     </div>
@@ -93,8 +95,16 @@ Biết cách từ bỏ đúng lúc để cắt lỗ (cả về tiền bạc lẫ
 Bớt bị thao túng bởi những lời quảng cáo, truyền thông hay các chuyên gia "tự phong".
 </div>
 
-<div>
-    Buy
+<div style="padding-top: 20px; display: flex; justify-content: space-around;" >
+    <div style="font-size: 30px; border: solid; border-radius: 10px; display: inline; background-color: black;">
+    <a href="Buy.html" style="color: white;"> Mua </a>     
+    </div>
+
+     <div style="font-size: 30px; border: solid; border-radius: 10px; display: inline; background-color: black;">
+    <a href="GioHang.html" style="color: white;" id="add-to-cart-detail-btn"> Giỏ Hàng </a>     
+    </div>
+
+   
 </div>
 
 </div>
@@ -126,7 +136,44 @@ Bớt bị thao túng bởi những lời quảng cáo, truyền thông hay các
 
 </div>
 
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Lấy giỏ hàng hiện tại từ localStorage
+    let cart = JSON.parse(localStorage.getItem('DUY_SNEAKER_CART')) || [];
 
+    // 2. Bắt sự kiện khi bấm nút "Buy"
+    const buyBtn = document.getElementById('add-to-cart-detail-btn');
+    
+    if (buyBtn) {
+        buyBtn.addEventListener('click', function() {
+            // Gom đúng thông tin của cuốn sách này
+            const name = "Nghệ thuật tư duy rành mạch"; 
+            const price = "280.000";
+            const img = "image/Book_1.webp"; // Đường dẫn ảnh của cuốn này
+
+            // Kiểm tra xem cuốn này đã có trong giỏ chưa
+            const existingItem = cart.find(product => product.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1; // Có rồi thì tăng số lượng
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    img: img,
+                    quantity: 1
+                });
+            }
+
+            // Lưu lại vào localStorage
+            localStorage.setItem('DUY_SNEAKER_CART', JSON.stringify(cart));
+
+            // Thông báo cho người dùng biết
+            alert(`Đã thêm "${name}" vào giỏ hàng thành công!`);
+        });
+    }
+});
+</script>
         
 </body>
 </html>

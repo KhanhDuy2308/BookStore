@@ -11,10 +11,12 @@
             <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
 
             <div class="navbar-right" >
-                <a href="#">Trang Chủ</a>
+                <a href="index.html">Trang Chủ</a>
                 <a href="HomeBook.html">Sách</a>
+                 <a href="GioHang.html">Giỏ Hàng</a>
                 <a href="#" id="openModalBtn">Loại Sách</a>
-                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+                <a href="lab.html" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Lab</a>
+                 <a href="QuanTriVien.html " style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Admin</a>
              </div>
                 
            </nav>
@@ -87,8 +89,16 @@ Những số phận bên lề: Cuốn sách tràn ngập bóng dáng của nhữ
 
 Sự va đập của địa chính trị: Tác giả khéo léo đan cài những quan sát về tầm ảnh hưởng của các siêu cường hiện đại lên vùng đất này. Con đường tơ lụa ngày nay không còn là những đoàn lạc đà chở tơ lụa, gia vị, mà là những đường ống dẫn dầu, những tuyến đường sắt xuyên lục địa và những toan tính kinh tế mới.
 </div>
-<div>
-    Buy
+<div style="padding-top: 20px; display: flex; justify-content: space-around;" >
+    <div style="font-size: 30px; border: solid; border-radius: 10px; display: inline; background-color: black;">
+    <a href="Buy.html" style="color: white;"> Mua </a>     
+    </div>
+
+     <div style="font-size: 30px; border: solid; border-radius: 10px; display: inline; background-color: black;">
+    <a href="GioHang.html" style="color: white;" id="add-to-cart-detail-btn"> Giỏ Hàng </a>     
+    </div>
+
+   
 </div>
 </div>
 </div>
@@ -114,6 +124,43 @@ Sự va đập của địa chính trị: Tác giả khéo léo đan cài nhữn
 </div>
 
 
-        
+        <script>
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Lấy giỏ hàng hiện tại từ localStorage
+    let cart = JSON.parse(localStorage.getItem('DUY_SNEAKER_CART')) || [];
+
+    // 2. Bắt sự kiện khi bấm nút "Buy"
+    const buyBtn = document.getElementById('add-to-cart-detail-btn');
+    
+    if (buyBtn) {
+        buyBtn.addEventListener('click', function() {
+            // Gom đúng thông tin của cuốn sách này
+            const name = "Con đường tơ lụa - Vạn dặm từ Tây sang Đông"; 
+            const price = "250.000";
+            const img = "image/Book_5.jpg"; // Đường dẫn ảnh của cuốn này
+
+            // Kiểm tra xem cuốn này đã có trong giỏ chưa
+            const existingItem = cart.find(product => product.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1; // Có rồi thì tăng số lượng
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    img: img,
+                    quantity: 1
+                });
+            }
+
+            // Lưu lại vào localStorage
+            localStorage.setItem('DUY_SNEAKER_CART', JSON.stringify(cart));
+
+            // Thông báo cho người dùng biết
+            alert(`Đã thêm "${name}" vào giỏ hàng thành công!`);
+        });
+    }
+});
+</script>
 </body>
 </html>

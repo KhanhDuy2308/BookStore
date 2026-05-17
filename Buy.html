@@ -5,16 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .form-container { max-width: 500px; margin: 30px auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #555; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 15px; }
+        .form-group textarea { resize: vertical; height: 80px; }
+        .error-msg { color: red; font-size: 13px; margin-top: 5px; display: none; }
+        .btn-submit { width: 100%; background-color: #28a745; color: white; border: none; padding: 12px; font-size: 16px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-submit:hover { background-color: #218838; }
+        .btn-cancel { display: block; text-align: center; margin-top: 15px; color: #6c757d; text-decoration: none; font-size: 14px; }
+    </style>
 </head>
 <body>
      <nav>
             <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
 
             <div class="navbar-right" >
-                <a href="#">Trang Chủ</a>
+                <a href="index.html">Trang Chủ</a>
                 <a href="HomeBook.html">Sách</a>
+                 <a href="GioHang.html">Giỏ Hàng</a>
                 <a href="#" id="openModalBtn">Loại Sách</a>
-                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+                <a href="lab.html" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Lab</a>
+                 <a href="QuanTriVien.html " style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Admin</a>
              </div>
                 
            </nav>
@@ -32,66 +47,205 @@
         </div>
     </div>
 
-    <div style="padding-top: 20px; padding: 30px; " align="center">
-        <form>
-            <div>
-                <label>
-                    Họ Và Tên
-                </label>
-                <div> <input type="text" id="Nameinput"></div>
-                <div class="error-message" id="NameErrorMessage"></div>
-            </div >
-              <div style="padding-top: 20px;">
-                <label>
-                    Địa Chỉ
-                </label>
-               <div> <input type="text" id="Addressinput"></div>
-               <div class="error-message" id="AddressErrorMessage"></div>
+  
+<div class="form-container">
+    <h2>📋 THÔNG TIN GIAO HÀNG</h2>
+    <div style="background: #fdfdfd; border: 1px dashed #aaa; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+        <h4 style="margin-top: 0; color: #333; border-bottom: 1px solid #eee; padding-bottom: 5px;">Đơn hàng của bạn:</h4>
+        <div id="checkout-list">
             </div>
-              <div style="padding-top: 20px;" >
-                <label>
-                    Email
-                </label>
-                <div> <input type="text" id="Emailinput"></div>
-                <div class="error-message" id="EmailErrorMessage"></div>
-            </div>
-
-            <div>
-                <input type="radio" value="Nam" name="gioitinh" > Nam
-                <input type ="radio" value="Nu" name="gioitinh"> Nu
-                <div class="error-message" id="nationErrorMessage"></div>
-            </div>
-
-            <div>
-                <input type="submit">
-            </div>
-
-        </form>
+        <div style="text-align: right; margin-top: 10px; font-weight: bold; color: red; font-size: 16px;">
+            Tổng thanh toán: <span id="checkout-total">0</span> VND
+        </div>
     </div>
+    
+    <form id="orderForm">
+        <div class="form-group">
+            <label for="fullname">Họ và tên *</label>
+            <input type="text" id="fullname" placeholder="Nhập đầy đủ họ tên">
+            <div class="error-msg" id="error-fullname">Vui lòng nhập họ và tên!</div>
+        </div>
 
-    <script>
-        function validateForm(){
-            var Nameinput = document.getElementById('Nameinput');
+        <div class="form-group">
+            <label for="phone">Số điện thoại *</label>
+            <input type="text" id="phone" placeholder="Nhập số điện thoại liên hệ">
+            <div class="error-msg" id="error-phone">Vui lòng nhập số điện thoại hợp lệ!</div>
+        </div>
 
-            var ten = Nameinput.value.trim();
-            var add = Addressinput.value.trim();
+        <div class="form-group">
+            <label for="address">Địa chỉ nhận hàng *</label>
+            <textarea id="address" placeholder="Số nhà, tên đường, phường/xã, quận/huyện..."></textarea>
+            <div class="error-msg" id="error-address">Vui lòng nhập địa chỉ giao hàng!</div>
+        </div>
 
-            var isValid = true;
-            if(ten ===''){
-                NameErrorMessage.textContent='vui long nhap ho ten';
-                isValid = false;
-            }
-            else{
-                NameErrorMessage.textContent='';
-            }
+        <button type="submit" class="btn-submit">Xác Nhận Đặt Hàng</button>
+    </form>
 
-            if (isValid) {
-                alert('Đặt hàng thành công!');
-            }
+    <a href="javascript:history.back()" class="btn-cancel">Quay lại trang trước</a>
+</div>
+
+<script>
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const fullname = document.getElementById('fullname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+
+    const errFullname = document.getElementById('error-fullname');
+    const errPhone = document.getElementById('error-phone');
+    const errAddress = document.getElementById('error-address');
+
+    let isValid = true;
+
+    if (fullname === "") { errFullname.style.display = "block"; isValid = false; } else { errFullname.style.display = "none"; }
+    const phoneRegex = /^[0-9]{9,11}$/;
+    if (phone === "" || !phoneRegex.test(phone)) { errPhone.style.display = "block"; isValid = false; } else { errPhone.style.display = "none"; }
+    if (address === "") { errAddress.style.display = "block"; isValid = false; } else { errAddress.style.display = "none"; }
+
+    // NẾU TẤT CẢ THÔNG TIN HỢP LỆ -> TIẾN HÀNH GỬI QUA ADMIN
+    if (isValid) {
+        // 1. Lấy danh sách đơn hàng cũ của Admin (nếu có)
+        let allOrders = JSON.parse(localStorage.getItem('DUY_SNEAKER_ORDERS')) || [];
+        
+        // 2. Lấy giỏ hàng hiện tại mà khách đang mua
+        let currentCart = JSON.parse(localStorage.getItem('DUY_SNEAKER_CART')) || [];
+
+        // Trường hợp khẩn cấp: Nếu giỏ hàng trống không có gì (đề phòng lỗi)
+        if (currentCart.length === 0) {
+            alert("Giỏ hàng của bạn đang trống, không thể thanh toán!");
+            return;
         }
 
-    </script>
+        // 3. Đóng gói thành một đơn hàng hoàn chỉnh
+        let newOrder = {
+            orderId: "DH" + Date.now().toString().slice(-6), // Tạo mã đơn hàng ngắn gọn bằng đuôi thời gian
+            customerName: fullname,
+            customerPhone: phone,
+            customerAddress: address,
+            products: currentCart, // Bỏ nguyên cái mảng giỏ hàng vào đây
+            date: new Date().toLocaleString('vi-VN')
+        };
 
+        // 4. Đẩy đơn hàng mới này vào kho đơn hàng chung của Admin
+        allOrders.push(newOrder);
+        localStorage.setItem('DUY_SNEAKER_ORDERS', JSON.stringify(allOrders));
+
+        // 5. Báo mua thành công và XÓA giỏ hàng của khách (để họ mua đơn khác)
+        alert("🎉 Chúc mừng bạn đã đặt hàng thành công!\nĐơn hàng đã được gửi tới hệ thống Admin quản lý.");
+        localStorage.removeItem('DUY_SNEAKER_CART'); 
+
+        // 6. Đá về trang chủ
+        window.location.href = "index.html"; 
+    }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Lấy dữ liệu giỏ hàng từ localStorage ra
+    let cart = JSON.parse(localStorage.getItem('DUY_SNEAKER_CART')) || [];
+    
+    const checkoutList = document.getElementById('checkout-list');
+    const checkoutTotal = document.getElementById('checkout-total');
+
+    // Kiểm tra xem LocalStorage có thực sự có dữ liệu không
+    console.log("Dữ liệu giỏ hàng lấy ra: ", cart);
+
+    // 2. Nếu giỏ hàng trống rỗng
+    if (cart.length === 0) {
+        checkoutList.innerHTML = '<p style="color: #888; font-style: italic; font-size: 14px; text-align: center;">Chưa có sản phẩm nào trong giỏ hàng.</p>';
+        if (checkoutTotal) checkoutTotal.textContent = "0";
+        return;
+    }
+
+    // 3. Nếu có hàng, duyệt qua mảng để in ra danh sách thu nhỏ
+    let totalMoney = 0;
+    checkoutList.innerHTML = ""; // Xóa trắng dữ liệu mặc định
+
+    cart.forEach(item => {
+        // HÀM VẠN NĂNG: Tự động xóa sạch dấu chấm, chữ VND, khoảng trắng... chỉ giữ lại số xuông
+        let cleanPrice = String(item.price).replace(/[^0-9]/g, '');
+        let itemPrice = parseFloat(cleanPrice) || 0;
+        
+        let itemTotal = itemPrice * item.quantity;
+        totalMoney += itemTotal;
+
+        // Tạo giao diện dòng sản phẩm nhỏ gọn
+        const div = document.createElement('div');
+        div.style.display = "flex";
+        div.style.alignItems = "center";
+        div.style.justifyContent = "space-between"; 
+        div.style.marginBottom = "10px";
+        div.style.paddingBottom = "5px";
+        div.style.borderBottom = "1px dashed #eee";
+        div.style.fontSize = "14px";
+        
+        div.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="${item.img}" style="width: 40px; height: auto; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/40'">
+                <span><strong>${item.name}</strong> <span style="color: #777;">(x${item.quantity})</span></span>
+            </div>
+            <div style="font-weight: bold; color: #333;">${itemTotal.toLocaleString('vi-VN')} VND</div>
+        `;
+        checkoutList.appendChild(div);
+    });
+
+    // Cập nhật tổng số tiền cần trả lên giao diện
+    if (checkoutTotal) {
+        checkoutTotal.textContent = totalMoney.toLocaleString('vi-VN');
+    }
+});
+
+// PHẦN XỬ LÝ SUBMIT FORM (Giữ nguyên)
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fullname = document.getElementById('fullname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const errFullname = document.getElementById('error-fullname');
+    const errPhone = document.getElementById('error-phone');
+    const errAddress = document.getElementById('error-address');
+
+    let isValid = true;
+    if (fullname === "") { errFullname.style.display = "block"; isValid = false; } else { errFullname.style.display = "none"; }
+    const phoneRegex = /^[0-9]{9,11}$/;
+    if (phone === "" || !phoneRegex.test(phone)) { errPhone.style.display = "block"; isValid = false; } else { errPhone.style.display = "none"; }
+    if (address === "") { errAddress.style.display = "block"; isValid = false; } else { errAddress.style.display = "none"; }
+
+    // if (isValid) {
+    //     alert("🎉 Chúc mừng bạn đã mua hàng thành công!\nĐơn hàng của bạn đang được xử lý.");
+    //     localStorage.removeItem('DUY_SNEAKER_CART'); 
+    //     window.location.href = "index.html"; 
+    // }
+
+    if (isValid) {
+    // 1. Lấy danh sách đơn hàng cũ đang có trong máy (nếu chưa có thì là mảng rỗng)
+    let allOrders = JSON.parse(localStorage.getItem('DUY_SNEAKER_ORDERS')) || [];
+    
+    // 2. Lấy giỏ hàng hiện tại mà khách vừa gom
+    let currentCart = JSON.parse(localStorage.getItem('DUY_SNEAKER_CART')) || [];
+
+    // 3. Tạo một đối tượng đơn hàng mới
+    let newOrder = {
+        orderId: "DH" + Date.now(), // Tạo mã đơn hàng tự động bằng thời gian
+        customerName: fullname,
+        customerPhone: phone,
+        customerAddress: address,
+        products: currentCart, // Bỏ nguyên cái giỏ hàng vào đây
+        date: new Date().toLocaleString('vi-VN')
+    };
+
+    // 4. Đẩy đơn hàng mới này vào kho đơn hàng chung
+    allOrders.push(newOrder);
+    localStorage.setItem('DUY_SNEAKER_ORDERS', JSON.stringify(allOrders));
+
+    // 5. Thông báo và chuyển hướng
+    alert("🎉 Đặt hàng thành công! Đơn hàng đã được gửi tới hệ thống Admin.");
+    localStorage.removeItem('DUY_SNEAKER_CART'); // Xóa giỏ hàng cũ đi
+    window.location.href = "index.html";
+}
+});
+
+</script>
          
 </body>
 </html>
