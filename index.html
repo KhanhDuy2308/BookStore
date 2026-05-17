@@ -5,28 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
    
 
         <nav>
-            <a href="#" class="logo" style="font-size: 50px;">DuySneaker </a>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
 
             <div class="navbar-right" >
                 <a href="#">Home</a>
-                <a href="HomeSneaker.html">Sneaker</a>
-                <a href="HomeKids.html">Kids</a>
+                <a href="HomeBook.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
                 <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
              </div>
                 
            </nav>
 
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Văn học nước ngoài</a></li>
+                <li><a href="#truyen-tranh">Tâm lý học hành vi</a></li>
+                <li><a href="#sach-tin-hoc">Sách truyền cảm hứng.</a></li>
+                <li><a href="#sach-ngoai-ngu">Du ký</a></li>
+            </ul>
+        </div>
+    </div>
+
            <div class="introduce" style="background-color: grey;">
             <span class="span-left"> Sale</span>
             <marquee width="300px">
-                 <img src="image/anh1.png">
-                 <img src="image/Screenshot 2026-03-26 at 15.42.09.png" width="200px">
-                 <img src="image/Screenshot 2026-03-26 at 15.43.55.png" width="200px">
+                
+                 <img src="image/Book_1.jpg " width="200px">
+                 <img src="image/Book-3.png" width="200px">
+                 <img src="image/Book_2.jpg" width="200px">
 
             </marquee>
             <span class="span-right">30%</span>
@@ -38,9 +53,13 @@
                 </div>
 
                 <div class="news-image">
-                    <img src="image/image-18.png" alt="">
-                    <img src="image/image-6.png" alt="">
-                    <img src="image/image-7.png" alt="">
+                   <div> <div> <img src="image/blog_1.jpg" alt="" width="200px"> </div>
+                <div align="center"> <a href="Blog1.html"> Click to see blog </a></div>
+                </div> 
+                   <div> <div> <img src="image/blog_2.jpg" alt="" width="200px"> </div>
+                <div align="center"> <a href="Blog2.html"> Click to see blog </a></div></div> 
+                    <div> <div> <img src="image/blog_3.jpg" alt="" width="200px"> </div>
+                <div align="center"> <a href="Blog3.html"> Click to see blog </a></div></div> 
                 </div>
 
             </div>
@@ -60,7 +79,7 @@
                 </div>
 
                 <div class="product-left">
-                    <img src="image/anh1.png">
+                    <img src="image/Book_3.jpg" width="300px">
 
                 </div>
 
@@ -81,6 +100,31 @@
             </div>
 
            </div>
+
+            <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
          
   
   

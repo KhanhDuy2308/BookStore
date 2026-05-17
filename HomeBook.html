@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <nav>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
+
+            <div class="navbar-right" >
+                <a href="index.html">Home</a>
+                <a href="HomeSneaker.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             </div>
+                
+           </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Sách giáo khoa</a></li>
+                <li><a href="#truyen-tranh">Truyện tranh</a></li>
+                <li><a href="#sach-tin-hoc">Sách Tin học</a></li>
+                <li><a href="#sach-ngoai-ngu">Sách Ngoại ngữ</a></li>
+            </ul>
+        </div>
+    </div>
+
+           <div class="introduce" style="background-color: grey;">
+            <span class="span-left"> Sale</span>
+            <marquee width="300px">
+                
+                 <img src="image/Book_1.jpg " width="200px">
+                 <img src="image/Book-3.png" width="200px">
+                 <img src="image/Book_2.jpg" width="200px">
+
+            </marquee>
+            <span class="span-right">30%</span>
+            </div>
+
+                 <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+<div >
+
+    <table  style="margin: 0 auto; width: 80%; border-collapse: separate; border-spacing: 30px 10px;">
+        <tr >
+            <th>
+                <div> <img src="image/Book_1.jpg" alt="" width="100px"> </div>
+                <div> Cây cam ngọt của tôi
+                </div>
+                <div><del>300.000VND</del></div>
+                <div> 270.000VND</div>
+                <div style="border-radius: 10px; border: solid; display: inline; background-color: black;"><a href="CayCamNgot.html" style="color: white;">Xem Chi Tiết</a></div>           
+            <th>
+                 <div> <img src="image/Book_1.webp" alt="" width="100px"> </div>
+                <div> Nghệ thuật tư duy rành mạch
+                </div>
+                <div><del>300.000VND</del></div>
+                <div> 270.000VND</div>  
+                <div style="border-radius: 10px; border: solid; display: inline; background-color: black;"><a href="" style="color: white;">Xem Chi Tiết</a></div>     
+            </th>
+            <th>
+                  <div> <img src="image/Book_2.jpg" alt="" width="100px"> </div>
+                <div> Nhật ký sáu vạn dặm trên yên xe cà tàng
+                </div>
+                <div><del>300.000VND</del></div>
+                <div> 270.000VND</div>  
+                <div style="border-radius: 10px; border: solid; display: inline; background-color: black;"><a href="" style="color: white;">Xem Chi Tiết</a></div>     
+            </th>
+        </tr>
+
+       <tr >
+            <th>
+                <div> <img src="image/Book_3.jpg" alt="" width="100px"> </div>
+                <div> Uzbekistan - Con đường màu xanh ngọc
+                </div>
+                <div><del>300.000VND</del></div>
+                <div> 270.000VND</div>     
+                <div style="border-radius: 10px; border: solid; display: inline; background-color: black;"><a href="" style="color: white;">Xem Chi Tiết</a></div>     
+                 
+            <th>
+                 <div> <img src="image/Book_4.jpg" alt="" width="100px"> </div>
+                <div> Triệu dấu chân qua những cửa ô
+                </div>
+                <div><del>300.000VND</del></div>
+                <div> 270.000VND</div>  
+                <div style="border-radius: 10px; border: solid; display: inline; background-color: black;"><a href="" style="color: white;">Xem Chi Tiết</a></div>     
+            </th>
+            <th>
+                  <div> <img src="image/Book_5.jpg" alt="" width="100px"> </div>
+                <div> Con đường tơ lụa - Vạn dặm từ Tây sang Đông
+                </div>
+                <div><del>300.000VND</del></div>
+                <div> 270.000VND</div>  
+                <div style="border-radius: 10px; border: solid; display: inline; background-color: black;"><a href="" style="color: white;">Xem Chi Tiết</a></div>     
+            </th>
+        </tr>
+    </table>
+
+     <div class="end">
+
+               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
+
+                <div class="bye">
+                    
+
+                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
+
+                </div>
+
+
+            </div>
+
+           </div>
+
+</div>
+
+
+        
+</body>
+</html>

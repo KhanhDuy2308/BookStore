@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <nav>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
+
+            <div class="navbar-right" >
+                <a href="index.html">Home</a>
+                <a href="HomeSneaker.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             </div>
+                
+           </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Sách giáo khoa</a></li>
+                <li><a href="#truyen-tranh">Truyện tranh</a></li>
+                <li><a href="#sach-tin-hoc">Sách Tin học</a></li>
+                <li><a href="#sach-ngoai-ngu">Sách Ngoại ngữ</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+          
+
+                 <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+<div style="display: flex; justify-content: space-around;">
+<div>
+    <img src="image/Book_1.jpg" alt="">
+</div>
+<div>
+    <div><h1 align="center"> Cây cam ngọt của tôi <br> (José Mauro de Vasconcelos) </h1> </div>
+    <div align="center""> <h2> Giá Tiền <del > 300.000VND</del></h2> </div>
+<div align="center"> <h2>270.000VND</h2>
+
+</div>
+</div>
+
+
+</div>
+
+
+<div >
+
+
+     <div class="end">
+
+               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
+
+                <div class="bye">
+                    
+
+                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
+
+                </div>
+
+
+            </div>
+
+           </div>
+
+</div>
+
+
+        
+</body>
+</html>
