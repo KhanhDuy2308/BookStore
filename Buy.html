@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <nav>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
+
+            <div class="navbar-right" >
+                <a href="#">Home</a>
+                <a href="HomeBook.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             </div>
+                
+           </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Văn học nước ngoài</a></li>
+                <li><a href="#truyen-tranh">Tâm lý học hành vi</a></li>
+                <li><a href="#sach-tin-hoc">Sách truyền cảm hứng.</a></li>
+                <li><a href="#sach-ngoai-ngu">Du ký</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="padding-top: 20px; padding: 30px; " align="center">
+        <form>
+            <div>
+                <label>
+                    Họ Và Tên
+                </label>
+                <div> <input type="text" id="Name"></div>
+                <div class="error-message" id="nationErrorMessage"></div>
+            </div >
+              <div style="padding-top: 20px;">
+                <label>
+                    Địa Chỉ
+                </label>
+               <div> <input type="text" id="Address"></div>
+               <div class="error-message" id="nationErrorMessage"></div>
+            </div>
+              <div style="padding-top: 20px;" >
+                <label>
+                    Email
+                </label>
+                <div> <input type="text" id="Email"></div>
+                <div class="error-message" id="nationErrorMessage"></div>
+            </div>
+
+            <div>
+                <input type="radio" value="Nam" name="gioitinh" > Nam
+                <input type ="radio" value="Nu" name="gioitinh"> Nu
+                <div class="error-message" id="nationErrorMessage"></div>
+            </div>
+
+            <div>
+                <input type="submit">
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        function validateForm(){
+            var ten = name.value.trim();
+            var add = Address.value.trim();
+
+            var isValid = true;
+            if(ten ===''){
+                tenErrorMessage.textContent='vui long nhap ho ten';
+                isValid = false;
+            }
+            else{
+                tenErrorMessage.textContent='';
+            }
+        }
+
+    </script>
+
+         
+</body>
+</html>

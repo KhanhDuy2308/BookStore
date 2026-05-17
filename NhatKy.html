@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <nav>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
+
+            <div class="navbar-right" >
+                <a href="index.html">Home</a>
+                <a href="HomeBook.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             </div>
+                
+           </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Sách giáo khoa</a></li>
+                <li><a href="#truyen-tranh">Truyện tranh</a></li>
+                <li><a href="#sach-tin-hoc">Sách Tin học</a></li>
+                <li><a href="#sach-ngoai-ngu">Sách Ngoại ngữ</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+          
+
+                 <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+<div style="display: flex; justify-content: space-around;">
+<div>
+    <img src="image/Book_2.jpg" alt="">
+</div>
+<div>
+    <div><h1 align="center"> Nhật ký sáu vạn dặm trên yên xe cà tàn <br> (Trần Đặng Đăng Khoa)</h1> </div>
+    <div align="center""> <h2> Giá Tiền <del > 200.000VND</del></h2> </div>
+<div align="center"> <h2>180.000VND</h2>
+
+  
+
+</div>
+  <div> 1. Hành trình phi thường trên chiếc "ngựa sắt" huyền thoại
+Hành trình của Trần Đặng Đăng Khoa không bắt đầu bằng những chiếc xe phân khối lớn đắt tiền, mà bằng "Memo" – chiếc xe Honda Wave đời cũ dung tích chỉ 110cc.
+
+Con số ấn tượng: 1.111 ngày (từ ngày 01/06/2017 đến tháng 06/2020), đi qua 65 quốc gia và vùng lãnh thổ, đặt chân lên cả 7 châu lục (Á, Âu, Nam Mỹ, Bắc Mỹ, Úc, Phi và cả Ăng-tác-ti-ca/Nam Cực).
+
+Vạn dặm độc hành: Khởi hành từ cửa khẩu Mộc Bài (Tây Ninh, Việt Nam), Khoa đã băng qua những sa mạc rát bỏng ở Trung Đông, những cung đường tuyết phủ lạnh giá ở châu Âu, rừng rậm Amazon hoang dã ở Nam Mỹ và những xa lộ cô độc ở nước Úc.</div>
+<div> 
+    2. Nội dung và Trải nghiệm: Thế giới qua lăng kính của một "gã điên" mơ mộng
+Cuốn sách không đơn thuần là một cuốn cẩm nang du lịch, mà là một thước phim tài liệu bằng chữ và ảnh, tái hiện chân thực những trải nghiệm "độc nhất vô nhị":
+
+Những nét đẹp văn hóa và con người: Khoa đưa độc giả đến với những lễ hội sắc màu, những món ăn bản địa kỳ lạ, và trên hết là lòng tốt của những người xa lạ khắp năm châu – những người đã cho cậu tá túc, giúp cậu sửa xe hay chỉ đơn giản là một cái ôm nồng hậu dọc đường.
+
+Đối mặt với lằn ranh sinh tử: Đằng sau ánh hào quang của những bức ảnh check-in là vô vàn hiểm nguy. Khoa đã phải đối mặt với cái lạnh dưới âm độ, những cơn bão cát sa mạc, những thủ tục visa ngặt nghèo tại các vùng biên giới bất ổn, và cả những lúc cô độc tột cùng khi xe hỏng giữa nơi không một bóng người.
+
+Tinh thần thiện nguyện: Hành trình của Khoa không chỉ để thỏa mãn cái tôi, cậu đi còn để gây quỹ cho trẻ em nghèo tại Việt Nam, mang theo niềm tự hào và lá cờ đỏ sao vàng giới thiệu với bạn bè quốc tế.
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+<div >
+
+
+     <div class="end">
+
+               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
+
+                <div class="bye">
+                    
+
+                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
+
+                </div>
+
+
+            </div>
+
+           </div>
+
+</div>
+
+
+        
+</body>
+</html>

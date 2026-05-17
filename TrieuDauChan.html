@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <nav>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
+
+            <div class="navbar-right" >
+                <a href="index.html">Home</a>
+                <a href="HomeBook.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             </div>
+                
+           </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Sách giáo khoa</a></li>
+                <li><a href="#truyen-tranh">Truyện tranh</a></li>
+                <li><a href="#sach-tin-hoc">Sách Tin học</a></li>
+                <li><a href="#sach-ngoai-ngu">Sách Ngoại ngữ</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+          
+
+                 <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+<div style="display: flex; justify-content: space-around;">
+<div>
+    <img src="image/Book_4.jpg" alt="">
+</div>
+<div>
+    <div><h1 align="center"> Triệu dấu chân qua những cửa ô <br> (Nguyễn Phương Mai) </h1> </div>
+    <div align="center""> <h2> Giá Tiền <del > 170.000VND<del></h2> </div>
+<div align="center"> <h2>150.000VND</h2>
+
+
+</div>
+<div>
+   1. Ý nghĩa biểu tượng của "Những cửa ô"
+Trong tựa đề, "những cửa ô" không chỉ đơn thuần là những chiếc cổng thành hay ranh giới địa lý giữa các quốc gia. Đối với Nguyễn Phương Mai, đó là những cánh cửa ngăn cách các nền văn hóa, ranh giới giữa cái cũ và cái mới, giữa định kiến và sự thấu hiểu, giữa "ta" và "người".
+
+"Triệu dấu chân" đại diện cho hành trình vạn dặm mà tác giả đã đi qua, nhưng đồng thời cũng là biểu tượng cho hàng triệu con người, hàng triệu số phận đã dịch chuyển qua những thăng trầm của lịch sử để tạo nên hình thái thế giới ngày hôm nay.
+</div>
+
+<div>
+    2. Góc nhìn đa chiều: Đi để hiểu người và để hiểu mình
+Điểm hấp dẫn nhất ở cuốn sách này vẫn là phong cách viết Du ký kết hợp Khảo cứu/Biện luận quen thuộc của tác giả. Nguyễn Phương Mai không bao giờ thỏa mãn với việc chỉ mô tả cảnh đẹp hay món ăn ngon. Ở mỗi "cửa ô" bước qua, cô luôn đặt ra những câu hỏi gai góc:
+
+Phá vỡ những định kiến: Tác giả dùng trải nghiệm thực tế để soi chiếu và đập tan những nhãn dán (stereotypes) mà truyền thông hay xã hội thường gán ghép cho một sắc tộc, một tôn giáo hay một quốc gia.
+
+Sự giao thoa văn hóa: Cô chỉ ra rằng thế giới này không phải là những mảng màu độc lập, tách rời. Đằng sau sự khác biệt bề ngoài, các nền văn minh luôn có những sợi dây liên kết, vay mượn và ảnh hưởng lẫn nhau một cách kỳ diệu.
+
+Hành trình quay về bên trong: Đi qua hàng triệu dấu chân ở xứ người, cái đích cuối cùng của tác giả lại là để hiểu rõ hơn về nguồn cội, về bản sắc Việt Nam và về chính bản thân mình.
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+<div >
+
+
+     <div class="end">
+
+               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
+
+                <div class="bye">
+                    
+
+                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
+
+                </div>
+
+
+            </div>
+
+           </div>
+
+</div>
+
+
+        
+</body>
+</html>

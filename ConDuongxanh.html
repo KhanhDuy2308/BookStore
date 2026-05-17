@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <nav>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
+
+            <div class="navbar-right" >
+                <a href="index.html">Home</a>
+                <a href="HomeBook.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             </div>
+                
+           </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Sách giáo khoa</a></li>
+                <li><a href="#truyen-tranh">Truyện tranh</a></li>
+                <li><a href="#sach-tin-hoc">Sách Tin học</a></li>
+                <li><a href="#sach-ngoai-ngu">Sách Ngoại ngữ</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+          
+
+                 <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+<div style="display: flex; justify-content: space-around;">
+<div>
+    <img src="image/Book_3.jpg" alt="">
+</div>
+<div>
+    <div><h1 align="center"> Uzbekistan - Con đường màu xanh ngọc <br> (Nguyễn Phương Mai) </h1> </div>
+    <div align="center""> <h2> Giá Tiền <del > 150.000VND</del></h2> </div>
+<div align="center"> <h2>100.000VND</h2>
+</div>
+<div>
+    1. Ý nghĩa của cái tên "Con đường màu xanh ngọc"
+Màu xanh ngọc (turquoise) chính là màu sắc chủ đạo của đất nước Uzbekistan. Từ những mái vòm thánh đường đồ sộ ở Samarkand, những bức tường khảm gạch gốm tinh xảo ở Bukhara cho đến bầu trời sa mạc trong vắt, màu xanh ngọc hiện lên như một chứng nhân lịch sử. Tác giả đã dùng sắc màu này để dệt nên sợi dây liên kết xuyên suốt toàn bộ hành trình, đại diện cho sự huyền bí, rực rỡ và kiêu hãnh của nền văn minh Trung Á.
+</div>
+<div>
+    2. Góc nhìn sắc sảo: Khi Du ký kết hợp với Khảo cứu Lịch sử
+Điểm độc đáo nhất trong các tác phẩm của Nguyễn Phương Mai, đặc biệt là cuốn sách này, chính là nhãn quan của một nhà nghiên cứu. Tác giả không chỉ "ngắm và chụp", cô lật mở từng lớp bụi thời gian để kể cho độc giả nghe:
+
+Trái tim của Con đường tơ lụa: Nơi từng là tụ điểm giao thoa văn hóa, thương mại, khoa học sầm uất bậc nhất thế giới giữa phương Đông và phương Tây.
+
+Dấu ấn của những vĩ nhân và bạo chúa: Cuốn sách tái hiện lại bóng dáng của Thành Cát Tư Hãn, những bước chân viễn chinh của Alexander Đại Đế, và đặc biệt là Timur (Tamerlane) – vị hoàng đế vĩ đại nhưng cũng đầy tàn bạo, người đã xây dựng nên những công trình kiến trúc xanh ngọc lộng lẫy bằng xương máu của tù binh.
+
+Bản sắc Hồi giáo Trung Á: Tác giả giúp người đọc giải mã sự khác biệt của Hồi giáo vùng Trung Á – một dòng Hồi giáo vừa nghiêm cẩn nhưng cũng đầy cởi mở, chịu ảnh hưởng sâu sắc bởi văn hóa du mục và thời kỳ thuộc Liên Xô cũ.
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+<div >
+
+
+     <div class="end">
+
+               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
+
+                <div class="bye">
+                    
+
+                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
+
+                </div>
+
+
+            </div>
+
+           </div>
+
+</div>
+
+
+        
+</body>
+</html>

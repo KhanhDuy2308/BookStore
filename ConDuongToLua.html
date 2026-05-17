@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <nav>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
+
+            <div class="navbar-right" >
+                <a href="index.html">Home</a>
+                <a href="HomeBook.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             </div>
+                
+           </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Sách giáo khoa</a></li>
+                <li><a href="#truyen-tranh">Truyện tranh</a></li>
+                <li><a href="#sach-tin-hoc">Sách Tin học</a></li>
+                <li><a href="#sach-ngoai-ngu">Sách Ngoại ngữ</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+          
+
+                 <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+<div style="display: flex; justify-content: space-around;">
+<div>
+    <img src="image/Book_5.jpg" alt="">
+</div>
+<div>
+    <div><h1 align="center"> Con đường tơ lụa - Vạn dặm từ Tây sang Đông  <br>(Khải Đơn) </h1> </div>
+    <div align="center""> <h2> Giá Tiền <del > 300.000VND</del></h2> </div>
+<div align="center"> <h2>250.000VND</h2>
+
+</div>
+
+<div>
+1. Hành trình ngược chiều từ Tây sang Đông
+Thông thường, khi nói về Con đường tơ lụa, người ta thường nghĩ đến hành trình xuất phát từ kinh đô Trường An (Trung Quốc) để đi về phương Tây. Nhưng Khải Đơn đã chọn một lối tiếp cận ngược lại: Đi từ hướng Tây sang Đông.
+
+Hành trình của cô bắt đầu từ những quốc gia vùng Trung Á, đi qua các vết tích của đế chế Ba Tư cổ đại, qua những sa mạc, thảo nguyên lộng gió, rồi mới khép lại tại vùng biên thùy phía Tây của Trung Quốc. Cách đi ngược chiều này mang lại một góc nhìn mới mẻ, khi người đọc được chứng kiến sự nhạt nhòa hay đậm nét dần của các dòng chảy văn hóa, tôn giáo và ngôn ngữ dọc theo tuyến đường giao thương lịch sử.
+</div>
+
+<div>
+    2. Bản giao hưởng giữa Quá khứ và Hiện tại
+Khải Đơn không chỉ mô tả những phế tích, lăng tẩm hay thánh đường lộng lẫy đã đi vào sử sách. Sức hút lớn nhất của cuốn sách nằm ở cách cô kết nối lịch sử với đời sống đương đại:
+
+Những số phận bên lề: Cuốn sách tràn ngập bóng dáng của những con người bình thường sống dọc con đường: người tài xế già vùng Trung Á, những người phụ nữ thầm lặng sau tấm khăn choàng, hay những người trẻ đang chới với giữa việc giữ gìn truyền thống và làn sóng hiện đại hóa.
+
+Sự va đập của địa chính trị: Tác giả khéo léo đan cài những quan sát về tầm ảnh hưởng của các siêu cường hiện đại lên vùng đất này. Con đường tơ lụa ngày nay không còn là những đoàn lạc đà chở tơ lụa, gia vị, mà là những đường ống dẫn dầu, những tuyến đường sắt xuyên lục địa và những toan tính kinh tế mới.
+</div>
+<div>
+    Buy
+</div>
+</div>
+</div>
+<div >
+
+
+     <div class="end">
+
+               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
+
+                <div class="bye">
+                    
+
+                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
+
+                </div>
+
+
+            </div>
+
+           </div>
+
+</div>
+
+
+        
+</body>
+</html>

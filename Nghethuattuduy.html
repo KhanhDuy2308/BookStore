@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <nav>
+            <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
+
+            <div class="navbar-right" >
+                <a href="index.html">Home</a>
+                <a href="HomeBook.html">Book</a>
+                <a href="#" id="openModalBtn">List Book</a>
+                <a href="#" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">More</a>
+             </div>
+                
+           </nav>
+
+           <div class="modal-overlay" id="bookModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Chọn loại sách</h3>
+            <ul class="book-list">
+                <li><a href="#sach-giao-khoa">Sách giáo khoa</a></li>
+                <li><a href="#truyen-tranh">Truyện tranh</a></li>
+                <li><a href="#sach-tin-hoc">Sách Tin học</a></li>
+                <li><a href="#sach-ngoai-ngu">Sách Ngoại ngữ</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+          
+
+                 <script>
+        // Lấy các phần tử từ HTML
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('bookModal');
+
+        // Khi ấn vào thẻ <a> -> Hiện cửa sổ lên
+        openBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang web bị nhảy lên đầu khi bấm href="#"
+            modal.style.display = 'block';
+        });
+
+        // Khi ấn vào dấu X -> Ẩn cửa sổ đi
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Khi ấn ra ngoài vùng cửa sổ -> Cũng ẩn đi luôn
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+<div style="display: flex; justify-content: space-around;">
+<div>
+    <img src="image/Book_1.webp" alt="">
+</div>
+<div>
+    <div><h1 align="center"> Nghệ thuật tư duy rành mạch <br> (Rolf Dobelli) </h1> </div>
+    <div align="center""> <h2> Giá Tiền <del > 350.000VND</del></h2> </div>
+<div align="center"> <h2>280.000VND</h2>
+
+    <div>
+        1. Cốt lõi của tác phẩm: Tại sao chúng ta lại tư duy sai lệch?
+Rolf Dobelli chỉ ra rằng, bộ não của con người hiện đại thực chất là "sản phẩm" được tiến hóa từ thời kỳ săn bắt hái lượm. Ở thời tiền sử, việc quyết định nhanh chớp nhoáng (ví dụ: thấy bụi rậm rung rinh là phải chạy ngay chứ không đứng lại phân tích logic) giúp tổ tiên chúng ta sống sót.
+
+Tuy nhiên, khi mang bộ não cổ xưa đó vào thế giới hiện đại – nơi tràn ngập thông tin phức tạp và các biến số tài chính, công nghệ – chúng ta liên tục đưa ra những quyết định sai lầm một cách có hệ thống. Tác giả gọi đó là "các hiệu ứng sai lệch nhận thức".
+    </div>
+
+</div>
+<div>
+    2. Giá trị cốt lõi bạn nhận được sau khi đọc
+Cuốn sách này không dạy bạn cách trở thành một thiên tài, mà nó dạy bạn cách bớt ngớ ngẩn đi. Đúng như Dobelli đã viết:
+
+"Chúng ta không cần thêm những mưu mẹo thông thái, những ý tưởng mới mẻ hay những hành động thừa thãi. Điều chúng ta cần chỉ là bớt đi sự ngu xuẩn."
+
+Bằng cách nhận diện và né tránh 99 cái bẫy này, bạn sẽ:
+
+Đưa ra các quyết định tài chính, đầu tư lý trí hơn, tránh bị cảm xúc dẫn dắt.
+
+Biết cách từ bỏ đúng lúc để cắt lỗ (cả về tiền bạc lẫn tâm sức).
+
+Bớt bị thao túng bởi những lời quảng cáo, truyền thông hay các chuyên gia "tự phong".
+</div>
+
+<div>
+    Buy
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+<div >
+
+
+     <div class="end">
+
+               <a href="#" class="logo" style="font-size: 50px;">DuySneaker</a>
+
+                <div class="bye">
+                    
+
+                    <p style="font-size: 40px;">Thanks , if you want to thinking <br> to us product you could contact me</p>
+
+                </div>
+
+
+            </div>
+
+           </div>
+
+</div>
+
+
+        
+</body>
+</html>
