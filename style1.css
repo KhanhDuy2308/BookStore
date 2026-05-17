@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 80px;
+      
+}
+
+.product{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 80px;
+
+}
+
+.function {
+    display: flex;
+    align-items: center;
+    padding: 0px 80px;
+    justify-content: space-around ;
+}
+
+.Product1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Cost1{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.Product2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
