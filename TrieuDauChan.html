@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <nav>
+<nav>
             <a href="#" class="logo"><img src="./image/logo.jpeg" alt="" style="width: 150px;"> </a>
 
             <div class="navbar-right" >
-                <a href="index.html">Trang Chủ</a>
-                <a href="HomeBook.html">Sách</a>
+                 <a href="index.html">Trang Chủ</a>
+                 <a href="HomeBook.html">Sách</a>
                  <a href="GioHang.html">Giỏ Hàng</a>
-                <a href="#" id="openModalBtn">Loại Sách</a>
-                <a href="lab.html" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Lab</a>
+                 <a href="#" id="openModalBtn">Loại Sách</a>
+                 <a href="lab.html" style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Lab</a>
                  <a href="QuanTriVien.html " style="border-style: solid; border-radius: 20px; display: inline-block; padding: 10px; background-color: black; color: white;">Admin</a>
+                
              </div>
+              <a href="javascript:void(0);" class="icon" onclick="toggleMenu()"> <i class="fa fa-bars" id="menu-icon"></i> </a>
                 
            </nav>
 
@@ -63,7 +65,7 @@
         });
     </script>
 
-<div style="display: flex; justify-content: space-around;">
+<div class="sach-container" style="display: flex; justify-content: space-around;">
 <div>
     <img src="image/Book_4.jpg" alt="">
 </div>
@@ -267,6 +269,17 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+function toggleMenu() {
+    const navbarRight = document.querySelector('.navbar-right');
+    
+    // Nếu nó đang ẩn thì hiện lên, đang hiện thì ẩn đi
+    if (navbarRight.style.display === 'flex') {
+        navbarRight.style.setProperty('display', 'none', 'important');
+    } else {
+        navbarRight.style.setProperty('display', 'flex', 'important');
+    }
+}
 </script>
 </body>
 </html>

@@ -22,6 +22,7 @@ nav{
     align-items: center;
     height: 80px;
     font-size: 20px;
+    
 }
  
    
@@ -138,6 +139,9 @@ h2{
     margin: 20px 0;
 }
 
+
+
+
 #searchBookInput {
     width: 50%;
     max-width: 400px;
@@ -154,3 +158,116 @@ h2{
     border-color: #007bff;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
 }
+
+.book-container {
+    display: flex;         /* Bật Flexbox để các phần tử nằm ngang */
+    flex-wrap: wrap;       /* Cho phép rớt dòng khi hết chỗ */
+    justify-content: center; /* Căn giữa các cuốn sách */
+    gap: 30px;             /* Khoảng cách giữa các cuốn sách (thay cho border-spacing) */
+    width: 80%;
+    margin: 0 auto;
+}
+
+.book-item {
+    text-align: center;
+    width: calc(33.33% - 30px); /* Kịch bản Desktop: Chia làm 3 cột */
+    box-sizing: border-box;
+}
+
+/* CSS dọn dẹp cho cái nút Xem Chi Tiết nhìn cho sạch sẽ */
+.btn-detail {
+    border-radius: 10px; 
+    border: solid 1px black; 
+    display: inline-block; 
+    background-color: black;
+    margin-top: 10px;
+}
+.btn-detail a {
+    color: white; 
+    text-decoration: none; 
+    padding: 5px 10px;
+    display: block;
+}
+
+/*-----------------------------------------*/
+
+.icon  {
+    display: none;
+}
+
+
+
+/* --- 💥 ĐOẠN ỐC VÍT RESPONSIVE: CHO ĐIỆN THOẠI (MOBILE) --- */
+ @media (max-width: 768px) {
+    .book-item {
+        width: 100%; /* Trên điện thoại: Ép mỗi cuốn sách chiếm trọn 100% chiều ngang $\rightarrow$ biến thành 1 cột dọc! */
+        margin-bottom: 20px; /* Cách đuôi nhau ra cho đẹp */
+    }
+
+    .icon{
+        display: block !important; 
+        
+    }
+
+    .introduce{
+        height: 150px !important;
+    }
+
+    .saleimg{
+        width: 80px; 
+    }
+
+     .span-left {
+        font-size: 100px;
+    }
+
+    .span-right{
+        font-size: 100px;
+    }
+
+    marquee {
+        font-size: 30px !important; /* Đang từ 80px hạ xuống 30px là vừa đẹp */
+        width: 25% !important; /* Nhường thêm khoảng trống ở giữa cho cuốn sách */
+    }
+
+
+    .navbar-right {
+       display: none !important; /* Mặc định trên Mobile là ẩn */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        z-index: 999;
+    }
+
+    .navbar-right a {
+        display: block !important;
+        margin: 5px auto;
+        width: fit-content;
+    }
+
+    .navbar-right.active {
+        display: flex !important;
+    }
+
+  
+
+   
+
+    .end{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+       
+       
+    }
+
+    .sach-container{
+        flex-direction: column;
+    }
+
+
+} 
