@@ -267,7 +267,99 @@ h2{
 
     .sach-container{
         flex-direction: column;
+        text-align: center;
+        align-items: center;
+        
     }
 
+    .news{
+        flex-direction: column;
+    }
 
+   
 } 
+
+@media (max-width:576px ){
+    .book-item {
+        width: 100%; /* Trên điện thoại: Ép mỗi cuốn sách chiếm trọn 100% chiều ngang $\rightarrow$ biến thành 1 cột dọc! */
+        margin-bottom: 20px; /* Cách đuôi nhau ra cho đẹp */
+    }
+
+    .icon{
+        display: block !important; 
+        
+    }
+
+    .introduce{
+        height: 150px !important;
+    }
+
+    .saleimg{
+        width: 80px; 
+    }
+
+     .span-left {
+        font-size: 100px;
+    }
+
+    .span-right{
+        font-size: 100px;
+    }
+
+    marquee {
+        font-size: 30px !important; /* Đang từ 80px hạ xuống 30px là vừa đẹp */
+        width: 25% !important; /* Nhường thêm khoảng trống ở giữa cho cuốn sách */
+    }
+
+    .sach-container img{
+            width: 450px;
+            justify-content: center;
+            align-items: center;
+            
+    }
+
+    .navbar-right {
+       display: none !important; /* Mặc định trên Mobile là ẩn */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        z-index: 999;
+    }
+
+    .navbar-right a {
+        display: block !important;
+        margin: 5px auto;
+        width: fit-content;
+    }
+
+    .navbar-right.active {
+        display: flex !important;
+    }
+
+  
+
+   
+
+    .end{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+       
+       
+    }
+
+    .sach-container{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        
+    }
+
+    .news{
+        flex-direction: column;
+    }
+}
